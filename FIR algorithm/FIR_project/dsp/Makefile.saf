@@ -1,0 +1,14 @@
+all: rtdx.dll rtdx.mexw32
+
+rtdx.dll: rtdx.cpp
+	mex.bat rtdx.cpp ${RTDXHS}
+	cp -f rtdx.dll ../../mex
+
+rtdx.mexw32:
+	mv -f rtdx.dll rtdx.dll.saf 
+	/dosc/Program\ Files/MATLAB/R2006b/bin/mex.bat rtdx.cpp ${RTDXHS}
+	cp -f rtdx.mexw32 ../../mex
+	mv rtdx.dll.saf rtdx.dll
+
+clean:
+	rm -f *.dll *.mexw32

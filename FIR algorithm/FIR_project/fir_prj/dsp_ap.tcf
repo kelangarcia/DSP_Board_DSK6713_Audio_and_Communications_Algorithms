@@ -1,0 +1,97 @@
+
+/* loading the generic platform */
+var params = {};
+params.clockRate = 225;
+params.deviceName = "6713";
+params.catalogName = "ti.catalog.c6000";
+params.regs = {};
+params.regs.l2Mode = "SRAM";
+utils.loadPlatform("ti.platforms.generic", params);
+
+
+/* enabling DSP/BIOS components */
+bios.GBL.ENABLEINST = true;
+bios.MEM.NOMEMORYHEAPS = false;
+bios.RTDX.ENABLERTDX = true;
+bios.HST.HOSTLINKTYPE = "RTDX";
+bios.TSK.ENABLETSK = true;
+bios.GBL.ENABLEALLTRC = true;
+
+bios.GBL.ENDIANMODE = "little";
+
+bios.GBL.C621XCONFIGUREL2 = false;
+
+/* applying user changes */
+bios.SDRAM = bios.MEM.create("SDRAM");
+
+bios.SDRAM.comment = "8M bytes of SDRAM";
+
+bios.SDRAM.base = 0x80000000;
+
+bios.SDRAM.len =  0x10000000;
+
+bios.SDRAM.heapSize = 0x800000;
+
+bios.SDRAM.space = "code/data";
+
+bios.swiEcho = bios.SWI.create("swiEcho");
+
+bios.udevCodec = bios.UDEV.create("udevCodec");
+
+bios.IRAM.len = 0x30000;
+
+bios.IRAM.createHeap = 1;
+
+bios.MEM.BIOSOBJSEG = prog.get("IRAM");
+
+bios.MEM.MALLOCSEG = prog.get("IRAM");
+
+bios.GBL.C621XCONFIGUREL2 = 1;
+
+bios.GBL.CALLUSERINITFXN = 1;
+
+bios.GBL.BOARDNAME = "dsk6713";
+
+bios.TSK.STACKSEG = prog.get("IRAM");
+
+bios.LNK_dataPump.order = 1;
+
+bios.RTA_dispatcher.order = 0x2;
+
+bios.IDL_cpuLoad.order = 0x3;
+
+bios.udevCodec.comment = "AIC23 device";
+
+bios.udevCodec.initFxn = prog.extern("DSK6713_EDMA_AIC23_init");
+
+bios.udevCodec.fxnTable = prog.extern("DSK6713_EDMA_AIC23_FXNS");
+
+bios.udevCodec.fxnTableType = "IOM_Fxns";
+
+bios.udevCodec.params = prog.extern("aic23param");
+
+bios.dioCodec = bios.DIO.create("dioCodec");
+
+bios.dioCodec.comment = "DIO driver for AIC23 codec";
+
+bios.dioCodec.useCallBackFxn = 1;
+
+bios.dioCodec.deviceName = prog.get("udevCodec");
+
+bios.GBL.C621XCCFGL2MODE = "4-way cache";
+
+bios.GBL.USERINITFXN = prog.extern("GBL_setPLLto225MHz");
+
+bios.PRD_clock.order = 1;
+
+bios.swiEcho.fxn = prog.extern("io");
+
+bios.swiEcho.mailbox = 0x3;
+
+bios.CACHE_L2.base = 0x30000;
+
+// !GRAPHICAL_CONFIG_TOOL_SCRIPT_INSERT_POINT!
+
+if (config.hasReportedError == false) {
+    prog.gen();
+}

@@ -1,0 +1,310 @@
+// Created by Microsoft (R) C/C++ Compiler Version 12.00.8168.0 (a0a3801a).
+//
+// c:\work_loc\2007.win.dsp\host\rtdx_mex\rtdxint.tlh
+//
+// C++ source equivalent of Win32 type library c:\CCStudio_v3.1\cc\bin\rtdxint.dll
+// compiler-generated file created 12/15/06 at 11:14:50 - DO NOT EDIT!
+
+#pragma once
+#pragma pack(push, 8)
+
+#include <comdef.h>
+
+namespace RTDXINTLib {
+
+//
+// Forward references and typedefs
+//
+
+struct /* coclass */ RtdxExp;
+struct __declspec(uuid("2fe5666f-3e4e-11d2-a964-006097a6a260"))
+/* dual interface */ IRtdxExp;
+
+//
+// Smart pointer typedef declarations
+//
+
+_COM_SMARTPTR_TYPEDEF(IRtdxExp, __uuidof(IRtdxExp));
+
+//
+// Type library items
+//
+
+struct __declspec(uuid("2fe56670-3e4e-11d2-a964-006097a6a260"))
+RtdxExp;
+    // [ default ] interface IRtdxExp
+
+struct __declspec(uuid("2fe5666f-3e4e-11d2-a964-006097a6a260"))
+IRtdxExp : IDispatch
+{
+    //
+    // Wrapper methods for error-handling
+    //
+
+    long Open (
+        _bstr_t Channel_String,
+        _bstr_t Read_Write );
+    long Close ( );
+    long Read (
+        VARIANT * pArr,
+        long dataType,
+        long numBytes );
+    long ReadI1 (
+        unsigned char * pData );
+    long ReadI2 (
+        short * pData );
+    long ReadI4 (
+        long * pData );
+    long ReadF4 (
+        float * pData );
+    long ReadF8 (
+        double * pData );
+    long ReadSAI1 (
+        VARIANT * pArr );
+    long ReadSAI2 (
+        VARIANT * pArr );
+    long ReadSAI4 (
+        VARIANT * pArr );
+    long ReadSAF4 (
+        VARIANT * pArr );
+    long ReadSAF8 (
+        VARIANT * pArr );
+    _variant_t ReadSAI2V (
+        long * pStatus );
+    _variant_t ReadSAI4V (
+        long * pStatus );
+    long WriteI1 (
+        unsigned char Data,
+        long * numBytes );
+    long WriteI2 (
+        short Data,
+        long * numBytes );
+    long WriteI4 (
+        long Data,
+        long * numBytes );
+    long WriteF4 (
+        float Data,
+        long * numBytes );
+    long WriteF8 (
+        double Data,
+        long * numBytes );
+    long Write (
+        const _variant_t & Arr,
+        long * numBytes );
+    long Rewind ( );
+    long Flush ( );
+    long Seek (
+        long MsgNum );
+    long SeekData (
+        long numBytes );
+    long StatusOfWrite (
+        long * numBytes );
+    long GetNumMsgs (
+        long * pNum );
+    long GetChannelID (
+        _bstr_t Channel_String,
+        long * chanId );
+    long GotoNextMsg ( );
+    long GetMsgID (
+        long * pMsgId );
+    long GetMsgNumber (
+        long * pMsgNum );
+    long GetMsgLength (
+        long * pLength );
+    long EnableRtdx ( );
+    long DisableRtdx ( );
+    long EnableChannel (
+        _bstr_t ChannelName );
+    long DisableChannel (
+        _bstr_t ChannelName );
+    long GetChannelStatus (
+        _bstr_t ChannelName,
+        long * pChannelStatus );
+    long ConfigureRtdx (
+        short Mode,
+        long MainBufferSize,
+        long NumOfMainBuffers );
+    long ConfigureLogFile (
+        _bstr_t FileName,
+        long FileSize,
+        short FileFullMode,
+        short FileOpenMode );
+    long GetRTDXRev (
+        long * RevNum );
+    long GetStatusString (
+        BSTR * StatusString );
+    long GetCapability (
+        long * Capability );
+    long RunDiagnostics (
+        short TestType,
+        long TestMode,
+        long TestInfo );
+    _bstr_t GetDiagFilePath (
+        short TestType );
+    long SetProcessor (
+        _bstr_t Board,
+        _bstr_t Cpu );
+
+    //
+    // Raw methods provided by interface
+    //
+
+    virtual HRESULT __stdcall raw_Open (
+        BSTR Channel_String,
+        BSTR Read_Write,
+        long * pStatus ) = 0;
+    virtual HRESULT __stdcall raw_Close (
+        long * pStatus ) = 0;
+    virtual HRESULT __stdcall raw_Read (
+        VARIANT * pArr,
+        long dataType,
+        long numBytes,
+        long * pStatus ) = 0;
+    virtual HRESULT __stdcall raw_ReadI1 (
+        unsigned char * pData,
+        long * pStatus ) = 0;
+    virtual HRESULT __stdcall raw_ReadI2 (
+        short * pData,
+        long * pStatus ) = 0;
+    virtual HRESULT __stdcall raw_ReadI4 (
+        long * pData,
+        long * pStatus ) = 0;
+    virtual HRESULT __stdcall raw_ReadF4 (
+        float * pData,
+        long * pStatus ) = 0;
+    virtual HRESULT __stdcall raw_ReadF8 (
+        double * pData,
+        long * pStatus ) = 0;
+    virtual HRESULT __stdcall raw_ReadSAI1 (
+        VARIANT * pArr,
+        long * pStatus ) = 0;
+    virtual HRESULT __stdcall raw_ReadSAI2 (
+        VARIANT * pArr,
+        long * pStatus ) = 0;
+    virtual HRESULT __stdcall raw_ReadSAI4 (
+        VARIANT * pArr,
+        long * pStatus ) = 0;
+    virtual HRESULT __stdcall raw_ReadSAF4 (
+        VARIANT * pArr,
+        long * pStatus ) = 0;
+    virtual HRESULT __stdcall raw_ReadSAF8 (
+        VARIANT * pArr,
+        long * pStatus ) = 0;
+    virtual HRESULT __stdcall raw_ReadSAI2V (
+        long * pStatus,
+        VARIANT * pArr ) = 0;
+    virtual HRESULT __stdcall raw_ReadSAI4V (
+        long * pStatus,
+        VARIANT * pArr ) = 0;
+    virtual HRESULT __stdcall raw_WriteI1 (
+        unsigned char Data,
+        long * numBytes,
+        long * pStatus ) = 0;
+    virtual HRESULT __stdcall raw_WriteI2 (
+        short Data,
+        long * numBytes,
+        long * pStatus ) = 0;
+    virtual HRESULT __stdcall raw_WriteI4 (
+        long Data,
+        long * numBytes,
+        long * pStatus ) = 0;
+    virtual HRESULT __stdcall raw_WriteF4 (
+        float Data,
+        long * numBytes,
+        long * pStatus ) = 0;
+    virtual HRESULT __stdcall raw_WriteF8 (
+        double Data,
+        long * numBytes,
+        long * pStatus ) = 0;
+    virtual HRESULT __stdcall raw_Write (
+        VARIANT Arr,
+        long * numBytes,
+        long * pStatus ) = 0;
+    virtual HRESULT __stdcall raw_Rewind (
+        long * pStatus ) = 0;
+    virtual HRESULT __stdcall raw_Flush (
+        long * pStatus ) = 0;
+    virtual HRESULT __stdcall raw_Seek (
+        long MsgNum,
+        long * pStatus ) = 0;
+    virtual HRESULT __stdcall raw_SeekData (
+        long numBytes,
+        long * pStatus ) = 0;
+    virtual HRESULT __stdcall raw_StatusOfWrite (
+        long * numBytes,
+        long * pStatus ) = 0;
+    virtual HRESULT __stdcall raw_GetNumMsgs (
+        long * pNum,
+        long * pStatus ) = 0;
+    virtual HRESULT __stdcall raw_GetChannelID (
+        BSTR Channel_String,
+        long * chanId,
+        long * pStatus ) = 0;
+    virtual HRESULT __stdcall raw_GotoNextMsg (
+        long * pStatus ) = 0;
+    virtual HRESULT __stdcall raw_GetMsgID (
+        long * pMsgId,
+        long * pStatus ) = 0;
+    virtual HRESULT __stdcall raw_GetMsgNumber (
+        long * pMsgNum,
+        long * pStatus ) = 0;
+    virtual HRESULT __stdcall raw_GetMsgLength (
+        long * pLength,
+        long * pStatus ) = 0;
+    virtual HRESULT __stdcall raw_EnableRtdx (
+        long * pStatus ) = 0;
+    virtual HRESULT __stdcall raw_DisableRtdx (
+        long * pStatus ) = 0;
+    virtual HRESULT __stdcall raw_EnableChannel (
+        BSTR ChannelName,
+        long * pStatus ) = 0;
+    virtual HRESULT __stdcall raw_DisableChannel (
+        BSTR ChannelName,
+        long * pStatus ) = 0;
+    virtual HRESULT __stdcall raw_GetChannelStatus (
+        BSTR ChannelName,
+        long * pChannelStatus,
+        long * pStatus ) = 0;
+    virtual HRESULT __stdcall raw_ConfigureRtdx (
+        short Mode,
+        long MainBufferSize,
+        long NumOfMainBuffers,
+        long * pStatus ) = 0;
+    virtual HRESULT __stdcall raw_ConfigureLogFile (
+        BSTR FileName,
+        long FileSize,
+        short FileFullMode,
+        short FileOpenMode,
+        long * pStatus ) = 0;
+    virtual HRESULT __stdcall raw_GetRTDXRev (
+        long * RevNum,
+        long * pStatus ) = 0;
+    virtual HRESULT __stdcall raw_GetStatusString (
+        BSTR * StatusString,
+        long * pStatus ) = 0;
+    virtual HRESULT __stdcall raw_GetCapability (
+        long * Capability,
+        long * pStatus ) = 0;
+    virtual HRESULT __stdcall raw_RunDiagnostics (
+        short TestType,
+        long TestMode,
+        long TestInfo,
+        long * pStatus ) = 0;
+    virtual HRESULT __stdcall raw_GetDiagFilePath (
+        short TestType,
+        BSTR * pPath ) = 0;
+    virtual HRESULT __stdcall raw_SetProcessor (
+        BSTR Board,
+        BSTR Cpu,
+        long * pStatus ) = 0;
+};
+
+//
+// Wrapper method implementations
+//
+
+#include "c:\work_loc\2007.win.dsp\host\rtdx_mex\rtdxint.tli"
+
+} // namespace RTDXINTLib
+
+#pragma pack(pop)

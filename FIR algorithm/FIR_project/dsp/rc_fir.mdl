@@ -1,0 +1,650 @@
+Model {
+  Name			  "rc_fir"
+  Version		  3.00
+  SimParamPage		  "Solver"
+  SampleTimeColors	  off
+  InvariantConstants	  off
+  WideVectorLines	  off
+  ShowLineWidths	  off
+  ShowPortDataTypes	  off
+  StartTime		  "0.0"
+  StopTime		  "100000"
+  SolverMode		  "Auto"
+  Solver		  "ode45"
+  RelTol		  "1e-3"
+  AbsTol		  "auto"
+  Refine		  "1"
+  MaxStep		  "auto"
+  InitialStep		  "auto"
+  FixedStep		  "auto"
+  MaxOrder		  5
+  OutputOption		  "RefineOutputTimes"
+  OutputTimes		  "[]"
+  LoadExternalInput	  off
+  ExternalInput		  "[t, u]"
+  SaveTime		  on
+  TimeSaveName		  "tout"
+  SaveState		  off
+  StateSaveName		  "xout"
+  SaveOutput		  on
+  OutputSaveName	  "yout"
+  LoadInitialState	  off
+  InitialState		  "xInitial"
+  SaveFinalState	  off
+  FinalStateName	  "xFinal"
+  SaveFormat		  "Matrix"
+  LimitMaxRows		  off
+  MaxRows		  "1000"
+  Decimation		  "1"
+  AlgebraicLoopMsg	  "warning"
+  MinStepSizeMsg	  "warning"
+  UnconnectedInputMsg	  "warning"
+  UnconnectedOutputMsg	  "warning"
+  UnconnectedLineMsg	  "warning"
+  InheritedTsInSrcMsg	  "warning"
+  IntegerOverflowMsg	  "warning"
+  UnnecessaryDatatypeConvMsg "none"
+  Int32ToFloatConvMsg	  "warning"
+  SignalLabelMismatchMsg  "none"
+  ConsistencyChecking	  "off"
+  ZeroCross		  on
+  SimulationMode	  "normal"
+  BlockDataTips		  on
+  BlockParametersDataTip  on
+  BlockAttributesDataTip  off
+  BlockPortWidthsDataTip  off
+  BlockDescriptionStringDataTip	off
+  BlockMaskParametersDataTip off
+  ToolBar		  on
+  StatusBar		  on
+  BrowserShowLibraryLinks off
+  BrowserLookUnderMasks	  off
+  OptimizeBlockIOStorage  on
+  BufferReuse		  on
+  BooleanDataType	  off
+  RTWSystemTargetFile	  "grt.tlc"
+  RTWInlineParameters	  off
+  RTWRetainRTWFile	  off
+  RTWTemplateMakefile	  "grt_default_tmf"
+  RTWMakeCommand	  "make_rtw"
+  RTWGenerateCodeOnly	  off
+  ExtModeMexFile	  "ext_comm"
+  ExtModeBatchMode	  off
+  ExtModeTrigType	  "manual"
+  ExtModeTrigMode	  "oneshot"
+  ExtModeTrigPort	  "1"
+  ExtModeTrigElement	  "any"
+  ExtModeTrigDuration	  1000
+  ExtModeTrigHoldOff	  0
+  ExtModeTrigDelay	  0
+  ExtModeTrigDirection	  "rising"
+  ExtModeTrigLevel	  0
+  ExtModeArchiveMode	  "off"
+  ExtModeAutoIncOneShot	  off
+  ExtModeIncDirWhenArm	  off
+  ExtModeAddSuffixToVar	  off
+  ExtModeWriteAllDataToWs off
+  ExtModeArmWhenConnect	  off
+  Created		  "Fri Feb  5 13:39:33 2010"
+  Creator		  "jon"
+  UpdateHistory		  "UpdateHistoryNever"
+  ModifiedByFormat	  "%<Auto>"
+  LastModifiedBy	  "jon"
+  ModifiedDateFormat	  "%<Auto>"
+  LastModifiedDate	  "Fri Feb  5 21:55:05 2010"
+  ModelVersionFormat	  "1.%<AutoIncrement:113>"
+  ConfigurationManager	  "none"
+  BlockDefaults {
+    Orientation		    "right"
+    ForegroundColor	    "black"
+    BackgroundColor	    "white"
+    DropShadow		    off
+    NamePlacement	    "normal"
+    FontName		    "Helvetica"
+    FontSize		    10
+    FontWeight		    "normal"
+    FontAngle		    "normal"
+    ShowName		    on
+  }
+  AnnotationDefaults {
+    HorizontalAlignment	    "center"
+    VerticalAlignment	    "middle"
+    ForegroundColor	    "black"
+    BackgroundColor	    "white"
+    DropShadow		    off
+    FontName		    "Helvetica"
+    FontSize		    10
+    FontWeight		    "normal"
+    FontAngle		    "normal"
+  }
+  LineDefaults {
+    FontName		    "Helvetica"
+    FontSize		    9
+    FontWeight		    "normal"
+    FontAngle		    "normal"
+  }
+  System {
+    Name		    "rc_fir"
+    Location		    [353, 72, 1284, 697]
+    Open		    on
+    ModelBrowserVisibility  off
+    ModelBrowserWidth	    200
+    ScreenColor		    "white"
+    PaperOrientation	    "landscape"
+    PaperPositionMode	    "auto"
+    PaperType		    "usletter"
+    PaperUnits		    "inches"
+    ZoomFactor		    "100"
+    AutoZoom		    on
+    ReportName		    "simulink-default.rpt"
+    Block {
+      BlockType		      Reference
+      Name		      "Bits to Symb"
+      Ports		      [1, 1, 0, 0, 0]
+      Position		      [145, 48, 195, 102]
+      SourceBlock	      "dsp_blocks/Conversions/Bits to Symb"
+      SourceType	      "SubSystem"
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "Input Stream"
+      Ports		      [0, 1, 0, 0, 0]
+      Position		      [15, 50, 95, 100]
+      ShowPortLabels	      on
+      MaskDescription	      "Input Stream: Reads binary data from an input f"
+"ile.  Outputs a new value once per period.  Width allows you to multiplex out"
+"put."
+      MaskHelp		      "The function loads the binary data from file fn"
+"ame, which should have a single vector called \"data\".  The output of the bl"
+"ock is updated once every T=width*period.  "
+      MaskPromptString	      "Period|Width|Data Filename"
+      MaskStyleString	      "edit,edit,edit"
+      MaskTunableValueString  "on,on,on"
+      MaskCallbackString      "||"
+      MaskEnableString	      "on,on,on"
+      MaskVisibilityString    "on,on,on"
+      MaskVariables	      "period=@1;width=@2;fname=&3;"
+      MaskInitialization      "load(fname); N = floor(length(data)/width); dat"
+"a = reshape(data(1:N*width),width,N);"
+      MaskDisplay	      "disp(sprintf('file=%s\\nT=%g w=%d', fname, peri"
+"od, width))"
+      MaskIconFrame	      on
+      MaskIconOpaque	      on
+      MaskIconRotate	      "none"
+      MaskIconUnits	      "autoscale"
+      MaskValueString	      "10|1|rand.mat"
+      System {
+	Name			"Input Stream"
+	Location		[151, 696, 386, 782]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"usletter"
+	PaperUnits		"inches"
+	ZoomFactor		"100"
+	AutoZoom		on
+	Block {
+	  BlockType		  Clock
+	  Name			  "Clock"
+	  Position		  [25, 28, 60, 62]
+	  DisplayTime		  on
+	  Decimation		  "1"
+	}
+	Block {
+	  BlockType		  MATLABFcn
+	  Name			  "MATLAB Fcn"
+	  Position		  [95, 30, 155, 60]
+	  MATLABFcn		  "input_stream_sample(u, data, period, width)"
+	  OutputWidth		  "width"
+	  OutputSignalType	  "auto"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "Out1"
+	  Position		  [180, 38, 210, 52]
+	  Port			  "1"
+	  OutputWhenDisabled	  "held"
+	  InitialOutput		  "[]"
+	}
+	Line {
+	  SrcBlock		  "MATLAB Fcn"
+	  SrcPort		  1
+	  DstBlock		  "Out1"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Clock"
+	  SrcPort		  1
+	  DstBlock		  "MATLAB Fcn"
+	  DstPort		  1
+	}
+      }
+    }
+    Block {
+      BlockType		      Mux
+      Name		      "Mux1"
+      Ports		      [2, 1, 0, 0, 0]
+      Position		      [825, 61, 830, 99]
+      ShowName		      off
+      Inputs		      "2"
+      DisplayOption	      "bar"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "PSD (RC)"
+      Ports		      [1, 0, 0, 0, 0]
+      Position		      [835, 295, 865, 325]
+      SourceBlock	      "simulink_extras/Additional\nSinks/Averaging\nPo"
+"wer Spectral\nDensity"
+      SourceType	      "Spectrum Analyzer"
+      npts		      "16384"
+      fftpts		      "256"
+      HowOften		      "2048"
+      sampleT		      "1"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "PSD (Rect)"
+      Ports		      [1, 0, 0, 0, 0]
+      Position		      [375, 295, 405, 325]
+      SourceBlock	      "simulink_extras/Additional\nSinks/Averaging\nPo"
+"wer Spectral\nDensity"
+      SourceType	      "Spectrum Analyzer"
+      npts		      "16384"
+      fftpts		      "256"
+      HowOften		      "2048"
+      sampleT		      "1"
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "Pulse Train"
+      Ports		      [1, 1, 0, 0, 0]
+      Position		      [325, 47, 380, 103]
+      ShowPortLabels	      on
+      MaskDescription	      "Samples the incoming signal and makes a pulse t"
+"rain."
+      MaskPromptString	      "Period (samples)"
+      MaskStyleString	      "edit"
+      MaskTunableValueString  "on"
+      MaskEnableString	      "on"
+      MaskVisibilityString    "on"
+      MaskVariables	      "period=@1;"
+      MaskDisplay	      "disp(sprintf('T=%d', period));"
+      MaskIconFrame	      on
+      MaskIconOpaque	      on
+      MaskIconRotate	      "none"
+      MaskIconUnits	      "autoscale"
+      MaskValueString	      "10"
+      System {
+	Name			"Pulse Train"
+	Location		[820, 342, 1079, 632]
+	Open			on
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"usletter"
+	PaperUnits		"inches"
+	ZoomFactor		"100"
+	AutoZoom		on
+	Block {
+	  BlockType		  Inport
+	  Name			  "In1"
+	  Position		  [45, 93, 75, 107]
+	  Port			  "1"
+	  PortWidth		  "-1"
+	  SampleTime		  "-1"
+	  DataType		  "auto"
+	  SignalType		  "auto"
+	  Interpolate		  on
+	}
+	Block {
+	  BlockType		  DiscretePulseGenerator
+	  Name			  "Discrete Pulse\nGenerator"
+	  Position		  [25, 25, 55, 55]
+	  Amplitude		  "1"
+	  Period		  "period"
+	  PulseWidth		  "1"
+	  PhaseDelay		  "0"
+	  SampleTime		  "1"
+	}
+	Block {
+	  BlockType		  Product
+	  Name			  "Product1"
+	  Ports			  [2, 1, 0, 0, 0]
+	  Position		  [100, 32, 130, 63]
+	  Inputs		  "2"
+	  SaturateOnIntegerOverflow on
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "Out1"
+	  Position		  [155, 43, 185, 57]
+	  Port			  "1"
+	  OutputWhenDisabled	  "held"
+	  InitialOutput		  "[]"
+	}
+	Line {
+	  SrcBlock		  "Discrete Pulse\nGenerator"
+	  SrcPort		  1
+	  DstBlock		  "Product1"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Product1"
+	  SrcPort		  1
+	  DstBlock		  "Out1"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "In1"
+	  SrcPort		  1
+	  Points		  [0, -45]
+	  DstBlock		  "Product1"
+	  DstPort		  2
+	}
+      }
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "RC FIR Filter"
+      Ports		      [1, 1, 0, 0, 0]
+      Position		      [580, 49, 650, 101]
+      ShowPortLabels	      on
+      MaskPromptString	      "Symbol Period|Roll Off (beta)|Root Filter?|Filt"
+"er Length (taps)"
+      MaskStyleString	      "edit,edit,checkbox,edit"
+      MaskTunableValueString  "on,on,on,on"
+      MaskCallbackString      "|||"
+      MaskEnableString	      "on,on,on,on"
+      MaskVisibilityString    "on,on,on,on"
+      MaskVariables	      "period=@1;beta=@2;root=@3;filt_len=@4;"
+      MaskInitialization      "symb_rate = 1/period; p.fs = symb_rate; p.beta "
+"= beta; p.root = root; [h f Ha Hi win] = win_method('rc_filt', p, 0.5, 1, fil"
+"t_len, 1); h = h';"
+      MaskDisplay	      "plot(f, abs(Ha));"
+      MaskIconFrame	      on
+      MaskIconOpaque	      on
+      MaskIconRotate	      "none"
+      MaskIconUnits	      "autoscale"
+      MaskValueString	      "10|0.5|off|128"
+      System {
+	Name			"RC FIR Filter"
+	Location		[487, 192, 1268, 446]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"usletter"
+	PaperUnits		"inches"
+	ZoomFactor		"100"
+	AutoZoom		on
+	Block {
+	  BlockType		  Inport
+	  Name			  "In1"
+	  Position		  [25, 43, 55, 57]
+	  Port			  "1"
+	  PortWidth		  "-1"
+	  SampleTime		  "-1"
+	  DataType		  "auto"
+	  SignalType		  "auto"
+	  Interpolate		  on
+	}
+	Block {
+	  BlockType		  DiscreteFilter
+	  Name			  "Discrete Filter2"
+	  Position		  [80, 27, 235, 73]
+	  Numerator		  "h"
+	  Denominator		  "[1]"
+	  SampleTime		  "1"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "Out1"
+	  Position		  [260, 43, 290, 57]
+	  Port			  "1"
+	  OutputWhenDisabled	  "held"
+	  InitialOutput		  "[]"
+	}
+	Line {
+	  SrcBlock		  "In1"
+	  SrcPort		  1
+	  DstBlock		  "Discrete Filter2"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Discrete Filter2"
+	  SrcPort		  1
+	  DstBlock		  "Out1"
+	  DstPort		  1
+	}
+      }
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Real Lookup"
+      Ports		      [1, 1, 0, 0, 0]
+      Position		      [220, 50, 285, 100]
+      SourceBlock	      "dsp_blocks/Conversions/Real Lookup"
+      SourceType	      ""
+      table		      "[-1 1]"
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "Sampler"
+      Ports		      [1, 1, 0, 0, 0]
+      Position		      [710, 113, 780, 167]
+      ShowPortLabels	      on
+      MaskPromptString	      "Offset (samples)|Sample Period"
+      MaskStyleString	      "edit,edit"
+      MaskTunableValueString  "on,on"
+      MaskCallbackString      "|"
+      MaskEnableString	      "on,on"
+      MaskVisibilityString    "on,on"
+      MaskVariables	      "offset=@1;samp_period=@2;"
+      MaskDisplay	      "disp(sprintf('del=%d, T=%d', offset, samp_perio"
+"d));"
+      MaskIconFrame	      on
+      MaskIconOpaque	      on
+      MaskIconRotate	      "none"
+      MaskIconUnits	      "autoscale"
+      MaskValueString	      "64|10"
+      System {
+	Name			"Sampler"
+	Location		[771, 744, 1016, 871]
+	Open			on
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"usletter"
+	PaperUnits		"inches"
+	ZoomFactor		"100"
+	AutoZoom		on
+	Block {
+	  BlockType		  Inport
+	  Name			  "In1"
+	  Position		  [35, 38, 65, 52]
+	  Port			  "1"
+	  PortWidth		  "-1"
+	  SampleTime		  "-1"
+	  DataType		  "auto"
+	  SignalType		  "auto"
+	  Interpolate		  on
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "D Latch"
+	  Ports			  [2, 2, 0, 0, 0]
+	  Position		  [110, 25, 155, 100]
+	  SourceBlock		  "simulink_extras/Flip Flops/D Latch"
+	  SourceType		  "DLatch"
+	}
+	Block {
+	  BlockType		  DiscretePulseGenerator
+	  Name			  "Discrete Pulse\nGenerator"
+	  Position		  [25, 65, 55, 95]
+	  Amplitude		  "1"
+	  Period		  "samp_period"
+	  PulseWidth		  "1"
+	  PhaseDelay		  "offset"
+	  SampleTime		  "1"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "Out1"
+	  Position		  [190, 33, 220, 47]
+	  Port			  "1"
+	  OutputWhenDisabled	  "held"
+	  InitialOutput		  "[]"
+	}
+	Line {
+	  SrcBlock		  "Discrete Pulse\nGenerator"
+	  SrcPort		  1
+	  DstBlock		  "D Latch"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "In1"
+	  SrcPort		  1
+	  DstBlock		  "D Latch"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "D Latch"
+	  SrcPort		  1
+	  Points		  [0, -5]
+	  DstBlock		  "Out1"
+	  DstPort		  1
+	}
+      }
+    }
+    Block {
+      BlockType		      Scope
+      Name		      "Scope2"
+      Ports		      [2, 0, 0, 0, 0]
+      Position		      [855, 61, 885, 94]
+      Floating		      off
+      Location		      [63, 736, 1230, 1282]
+      Open		      off
+      NumInputPorts	      "2"
+      TickLabels	      "OneTimeTick"
+      ZoomMode		      "on"
+      List {
+	ListType		AxesTitles
+	axes1			"%<SignalLabel>"
+	axes2			"%<SignalLabel>"
+      }
+      Grid		      "on"
+      TimeRange		      "auto"
+      YMin		      "-5~-5"
+      YMax		      "5~5"
+      SaveToWorkspace	      off
+      SaveName		      "ScopeData"
+      DataFormat	      "StructureWithTime"
+      LimitMaxRows	      off
+      MaxRows		      "5000"
+      Decimation	      "1"
+      SampleInput	      off
+      SampleTime	      "0"
+    }
+    Block {
+      BlockType		      TransportDelay
+      Name		      "Transport\nDelay"
+      Position		      [545, 210, 575, 240]
+      DelayTime		      "64"
+      InitialInput	      "1"
+      BufferSize	      "1024"
+    }
+    Line {
+      SrcBlock		      "Input Stream"
+      SrcPort		      1
+      DstBlock		      "Bits to Symb"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Bits to Symb"
+      SrcPort		      1
+      DstBlock		      "Real Lookup"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "RC FIR Filter"
+      SrcPort		      1
+      Points		      [0, -5; 25, 0]
+      Branch {
+	Points			[0, 70]
+	DstBlock		"Sampler"
+	DstPort			1
+      }
+      Branch {
+	Points			[120, 0]
+	Branch {
+	  DstBlock		  "Mux1"
+	  DstPort		  1
+	}
+	Branch {
+	  Points		  [0, 240]
+	  DstBlock		  "PSD (RC)"
+	  DstPort		  1
+	}
+      }
+    }
+    Line {
+      SrcBlock		      "Mux1"
+      SrcPort		      1
+      Points		      [5, 0]
+      DstBlock		      "Scope2"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Sampler"
+      SrcPort		      1
+      Points		      [0, -50]
+      DstBlock		      "Mux1"
+      DstPort		      2
+    }
+    Line {
+      SrcBlock		      "Real Lookup"
+      SrcPort		      1
+      Points		      [15, 0]
+      Branch {
+	DstBlock		"Pulse Train"
+	DstPort			1
+      }
+      Branch {
+	Points			[0, 155; 45, 0]
+	Branch {
+	  Points		  [180, 0]
+	  DstBlock		  "Transport\nDelay"
+	  DstPort		  1
+	}
+	Branch {
+	  Points		  [0, 80]
+	  DstBlock		  "PSD (Rect)"
+	  DstPort		  1
+	}
+      }
+    }
+    Line {
+      SrcBlock		      "Pulse Train"
+      SrcPort		      1
+      DstBlock		      "RC FIR Filter"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Transport\nDelay"
+      SrcPort		      1
+      Points		      [260, 0]
+      DstBlock		      "Scope2"
+      DstPort		      2
+    }
+  }
+}
